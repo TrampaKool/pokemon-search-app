@@ -1,0 +1,343 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+		:root {
+  --background-color: rgb(135, 206, 235);
+  --pokeball-red: linear-gradient(-35deg, rgb(230, 0, 0) 40%, rgb(255, 225, 225));
+  --pokeball-white: linear-gradient(-35deg, rgb(200, 200, 200) 80%, rgb(255, 255, 255));
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#header-title {
+font-weight: normal;
+	font-family: 'Pokemon Solid', sans-serif;
+  text-align: center;
+  color: #ffcb05;
+  text-shadow: 
+        -2px -2px 0 #3b4cca,  /* Blue outline (top-left) */
+        2px -2px 0 #3b4cca,   /* Blue outline (top-right) */
+        -2px 2px 0 #3b4cca,   /* Blue outline (bottom-left) */
+        2px 2px 0 #3b4cca,    /* Blue outline (bottom-right) */
+        0px 0px 10px rgba(0, 0, 0, 0.5); /* Soft shadow effect */
+}
+
+#search-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#search-form {
+  width: 700px;
+  height: 350px;
+  box-shadow: 0 0 20px black;
+  background: var(--pokeball-red);
+  border-top-left-radius: 350px;
+  border-top-right-radius: 350px;
+  border-bottom: 20px solid black;
+  border-top: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#input-container {
+  width: 400px;
+  height: 150px;
+  border-radius: 20px;
+  background-color: rgba(200, 200, 200, 0.7);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#loading-div {
+  display: none;
+  position: absolute;
+  background-color: rgba(200, 200, 200, 0.7);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+#input-label {
+  margin-bottom: 25px;
+  font-size: 1.4rem;
+}
+
+#search-input {
+  border-radius: 20px;
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+#button-container {
+  visibility: visible;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border: 20px solid black;
+  border-radius: 100%;
+  position: absolute;
+  top: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search-button {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  border: 1px solid grey;
+  box-shadow: 0 0 10px black;
+  font-family: inherit;
+}
+
+#search-button:active {
+  box-shadow: 0 0 5px black;
+  transform: translateY(1px);
+}
+
+#result {
+  width: 700px;
+  height: 350px;
+  box-shadow: 0 0 20px black;
+  background: var(--pokeball-white);
+  border-bottom-left-radius: 350px;
+  border-bottom-right-radius: 350px;
+  border-top: 20px solid black;
+  border-bottom: 2px solid black;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.info {
+  height: 200px;
+  width: 235px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgba(150, 150, 150, 0.7);
+}
+
+#preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#name-and-id-div {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#weight-and-height-div {
+  font-size: 0.9rem;
+}
+#image-div {
+  background-color: rgb(102, 205, 102);
+  width: 100%;
+  border-radius: 30px;
+  text-align: center;
+  margin: 3px 0;
+}
+
+.type {
+  background-color: white;
+  position: relative;
+  top: 5px;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+#stats {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+#stats table {
+  text-align: center;
+}
+
+#stats table thead {
+  font-size: 1.2rem;
+}
+
+#stats table tbody {
+  font-size: 1rem;
+}
+
+.normal {
+    background-color: rgb(168, 168, 120);
+}
+
+.fighting {
+    background-color: rgb(192, 48, 40);
+}
+
+.flying {
+    background-color: rgb(168, 144, 240);
+}
+
+.poison {
+    background-color: rgb(160, 64, 160);
+}
+
+.ground {
+    background-color: rgb(224, 192, 104);
+}
+
+.rock {
+    background-color: rgb(184, 160, 56);
+}
+
+.bug {
+    background-color: rgb(168, 184, 32);
+}
+
+.ghost {
+    background-color: rgb(112, 88, 152);
+}
+
+.steel {
+    background-color: rgb(184, 184, 208);
+}
+
+.fire {
+    background-color: rgb(240, 128, 48);
+}
+
+.water {
+    background-color: rgb(104, 144, 240);
+}
+
+.grass {
+    background-color: rgb(120, 200, 80);
+}
+
+.electric {
+    background-color: rgb(248, 208, 48);
+}
+
+.psychic {
+    background-color: rgb(248, 88, 136);
+}
+
+.ice {
+    background-color: rgb(152, 216, 216);
+}
+
+.dragon {
+    background-color: rgb(112, 56, 248);
+}
+
+.dark {
+    background-color: rgb(112, 88, 72);
+}
+
+.fairy {
+    background-color: rgb(238, 153, 172);
+}
+
+.stellar {
+    background-color: rgb(128, 0, 128);
+}
+
+.unknown {
+    background-color: rgb(104, 160, 144);
+}
+
+@media only screen and (max-width: 725px) {
+
+  html {
+    font-size: 16px;
+  }
+	
+	main {
+  width: min-content;
+  height: auto;
+	}
+
+  #search-form {
+  width: 500px;
+  height: 250px;
+  box-shadow: 0 0 20px black;
+  background: var(--pokeball-red);
+  border-top-left-radius: 250px;
+  border-top-right-radius: 250px;
+  border-bottom: 10px solid black;
+  }
+
+  #input-container {
+  width: 250px;
+  height: 125px;
+  border-radius: 20px;
+  background-color: rgba(200, 200, 200, 0.7);
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }
+
+  #result {
+  width: 500px;
+  height: 250px;
+  box-shadow: 0 0 20px black;
+  background: var(--pokeball-white);
+  border-bottom-left-radius: 250px;
+  border-bottom-right-radius: 250px;
+  border-top: 10px solid black;
+  padding-top: 0px;
+  gap: 10px;
+  }
+
+  #button-container {
+  width: 75px;
+  height: 75px;
+  border: 5px solid black;
+  top: 150px;
+  }
+
+  .info {
+  height: 175px;
+  width: 170px;
+  padding: 0;
+  }
+
+  #stats {
+  padding: 0;
+  }
+
+}
