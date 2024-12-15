@@ -18,7 +18,7 @@ async function getApiData(url) {
 }
 
 function isInputValid(input) {
-  const regex = /^\d+$|^[a-z]{2,15}$|^[a-z]{2,6}\.?\s[a-z]{2,6}\.?$|^[a-z]{2,15}\-[fm]$/;
+  const regex = /^\d+$|^[a-z]{2,15}$|^[a-z]{2,15}\.?-[a-z]{2,15}\.?$|^[a-z]{2,15}\-[fm]$/;
 
   return regex.test(input);
 }
