@@ -18,7 +18,7 @@ async function getApiData(url) {
 }
 
 function isInputValid(input) {
-  const regex = /^\d+$|^[a-z]{2,15}$|^[a-z]{2,15}\.?-[a-z]{2,15}\.?$|^[a-z]{2,15}\-[fm]$/;
+  const regex = /^\d+$|^[a-z]{2,15}$|^[a-z]{2,15}\.?[-\s][a-z]{2,15}\.?$|^[a-z]{2,15}\-[fm]$/;
 
   return regex.test(input);
 }
@@ -94,14 +94,15 @@ function displayData(data) {
 
 searchBtn.addEventListener("click", (event) => {
 	event.preventDefault();
-  const userInput = searchInput.value.trim().toLowerCase();
+  let userInput = searchInput.value.trim().toLowerCase();
 
   if (!isInputValid(userInput)) {
     alert("Invalid Input");
-	searchInput.value = "";
+	  searchInput.value = "";
     return;
   }
   let data;
+  userInput = userInput.replace(" ", "-");
 
   toggleInput();
   getApiData(dataUrl + userInput).then(response => {
